@@ -1,0 +1,108 @@
+﻿@using BsComInterview.ViewModels;
+
+
+@model HomeIndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<form method="post" enctype="multipart/form-data"
+      asp-controller="UploadFiles" asp-action="Index">
+    
+    <div class="form-group">
+        <div class="col-md-10">
+            <label for="firstname">First Name:</label>
+            <input type="text" asp-for="User.FirstName" class="form-control" />
+            <span asp-validation-for="User.FirstName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label for="lastname">Last Name:</label>
+            <input type="text" asp-for="User.LastName" class="form-control" />
+            <span asp-validation-for="User.LastName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label for="firstname">First Name:</label>
+            <input type="email" asp-for="User.Email" class="form-control" />
+            <span asp-validation-for="User.Email" class="text-danger"></span>
+        </div>
+    </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Upload one or more files using this form:</p>
+                <input type="file" id="fileUpload" asp-for="Document" name="File" multiple />
+                <br />
+                <div style="width:300px">
+                    <div id="progressbar" style="position:relative; display:none">
+                        <span style="position:absolute; left:35%; top:20% " id="progressbar-label"> Uploading...</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Upload" id="uploadBtn" />
+            </div>
+        </div>
+   
+    <div class="form-group" style="padding-left:200px">
+        <div class="col-md-10">
+            <br />
+            <a class="btn btn-group-lg btn-success" asp-controller="Home" asp-action="Save">Submit</a>
+        </div>
+    </div>
+   
+</form>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#uploadBtn').click(function () {
+            var files = $('#fileUpload')[0].files;
+            if (files.length > 0) {
+                var formData = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    formData.append(files[i].name, files[i]);
+                }
+
+                var progressbarDiv = $('#progressbar');
+                var progressbarLabel = $('#progressbar-label');
+
+                $.ajax({
+                    url: 'Home',
+                    method: 'post',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+
+                        progressbarLabel.text('Complete');
+                        progressbarDiv.fadeOut(2000);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+
+                    }
+                });
+                progressbarLabel.text('Uploading...');
+                //$('#progressbar').progressbar({
+                //    value: false
+
+                //}).fadeIn(500);
+                
+            }
+        });
+
+    });
+</script>
