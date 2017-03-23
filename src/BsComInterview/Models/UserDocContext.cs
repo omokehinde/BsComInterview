@@ -8,10 +8,10 @@ namespace BsComInterview.Models
 {
     public class UserDocContext :DbContext
     {
-        //public UserDocContext(DbContextOptions<UserDocContext> options) : base(options)
-        //{
+        public UserDocContext(DbContextOptions<UserDocContext> options) : base(options)
+        {
 
-        //}
+        }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Document> Documents { get; set; }

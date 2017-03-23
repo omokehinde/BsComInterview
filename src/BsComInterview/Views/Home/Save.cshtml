@@ -3,7 +3,7 @@
 
 @model HomeIndexViewModel
 
-<form method="post" asp-controller="Home" asp-action="Save">
+<form method="post" asp-controller="Home" asp-action="Save" class="col-md-12">
 
     <div class="form-group">
         <div class="col-md-10">
@@ -16,8 +16,8 @@
     <div class="form-group">
         <div class="col-md-10">
             <label for="firstname">Transaction Number:</label>
-            <input type="text" asp-for="TransactionNumber" class="form-control" />
-            <span asp-validation-for="TransactionNumber" class="text-danger"></span>
+            <input type="text" asp-for="User.TransactionNumber" class="form-control" />
+            <span asp-validation-for="User.TransactionNumber" class="text-danger"></span>
         </div>
     </div>
 

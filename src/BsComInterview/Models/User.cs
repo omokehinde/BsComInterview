@@ -25,7 +25,7 @@ namespace BsComInterview.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Type in your correct Transaction Number.")]
-        public TransactionNumber? TransactionNumber { get; set; }
+        public int TransactionNumber { get; set; }
 
 
 

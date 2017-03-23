@@ -13,7 +13,6 @@ namespace BsComInterview.ViewModels
 
         public User User { get; set; }
 
-        public TransactionNumber? TransactionNumber { get; set; }
 
     }
 }

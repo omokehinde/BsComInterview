@@ -13,6 +13,7 @@ namespace BsComInterview.Controllers
 {
     public class HomeController : Controller
     {
+        private UserDocContext _context;
 
       
         public IActionResult Index()
@@ -92,18 +93,18 @@ namespace BsComInterview.Controllers
                 //    //user.AvatarImage = memoryStream.ToArray();
                 //}
 
-                using (var db = new UserDocContext())
-                {
-                    var newUser = new User
-                    {
-                        FirstName = model.User.FirstName,
-                        LastName = model.User.LastName,
-                        Email = model.User.Email,
-                        Documents = model.User.Documents
-                    };
-                    db.Users.Add(newUser);
-                    db.SaveChanges();
-                }
+                //using (var db = new UserDocContext())
+                //{
+                //    var newUser = new User
+                //    {
+                //        FirstName = model.User.FirstName,
+                //        LastName = model.User.LastName,
+                //        Email = model.User.Email,
+                //        Documents = model.User.Documents
+                //    };
+                //    db.Users.Add(newUser);
+                //    db.SaveChanges();
+                //}
                 // additional logic omitted
             }
 

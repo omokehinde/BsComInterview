@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace BsComInterview.Models
 {
-    public enum TransactionNumber
-    {
-
-    }
+    
 
     public class Document
     {

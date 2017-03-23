@@ -39,8 +39,8 @@ namespace BsComInterview
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
-            //var connectionString = @"Server=(localdb)\mssqllocaldb;Database=UsersDocs;Trusted_connection=True;";
-            // services.AddDbContext<UserDocContext>(options => options.UseSqlServer(connectionString));
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=UsersDocs;Trusted_connection=True;";
+            services.AddDbContext<UserDocContext>(options => options.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

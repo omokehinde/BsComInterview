@@ -10,7 +10,7 @@
 
 
 <form method="post" enctype="multipart/form-data"
-      asp-controller="UploadFiles" asp-action="Index">
+      asp-controller="Home" asp-action="Index" class="col-md-12">
     
     <div class="form-group">
         <div class="col-md-10">
@@ -41,8 +41,8 @@
                 <p>Upload one or more files using this form:</p>
                 <input type="file" id="fileUpload" asp-for="Document" name="File" multiple />
                 <br />
-                <div style="width:300px">
-                    <div id="progressbar" style="position:relative; display:none">
+                <div style="width:300px" >
+                    <div  id="progressbar" style="position:relative; display:none">
                         <span style="position:absolute; left:35%; top:20% " id="progressbar-label"> Uploading...</span>
                     </div>
                 </div>
@@ -96,10 +96,10 @@
                     }
                 });
                 progressbarLabel.text('Uploading...');
-                //$('#progressbar').progressbar({
-                //    value: false
+                $('#progressbar').progressbar({
+                    value: false
 
-                //}).fadeIn(500);
+                }).fadeIn(500);
                 
             }
         });
